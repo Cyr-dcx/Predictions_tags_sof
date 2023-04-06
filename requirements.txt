@@ -6,3 +6,4 @@ typing
 # scikit-learn==1.2.2
 # tensorflow
 # xgboost==1.7.1
+uvicorn
