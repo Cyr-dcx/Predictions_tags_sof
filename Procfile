@@ -1,1 +1,1 @@
-web: uvicorn main_api:app --host=0.0.0.0 --port 8004
+web : uvicorn -w 4 -k uvicorn.workers.UvicornWorker main_api:app
