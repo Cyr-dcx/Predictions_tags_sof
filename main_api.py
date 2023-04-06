@@ -5,7 +5,7 @@ import joblib
 from fastapi import FastAPI, #HTTPException
 from pydantic import BaseModel
 from utils_package.functions import *
-from sklearn.preprocessing import StandardScaler
+# from sklearn.preprocessing import StandardScaler
 
 app = FastAPI()
 
