@@ -1,1 +1,1 @@
-web : uvicorn -w 4 -k uvicorn.workers.UvicornWorker main_api:app
+web : uvicorn main_api:app --port 8004
