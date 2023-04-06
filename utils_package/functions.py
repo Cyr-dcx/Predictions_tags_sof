@@ -2,7 +2,9 @@ import pandas as pd
 import numpy as np
 import tensorflow_hub as hub
 
-embed = hub.load("https://tfhub.dev/google/universal-sentence-encoder/4")
+def get_embed():
+    embed = hub.load("https://tfhub.dev/google/universal-sentence-encoder/4")
+    return embed
 
 def feature_USE_fct(sentences, b_size=1) :
     if type(sentences) != list:
@@ -10,7 +12,8 @@ def feature_USE_fct(sentences, b_size=1) :
     
     batch_size = b_size
     # time1 = time.time()
-
+    embed = get_embed()
+    
     for step in range(len(sentences)//batch_size) :
         idx = step*batch_size
         feat = embed(sentences[idx:idx+batch_size])
