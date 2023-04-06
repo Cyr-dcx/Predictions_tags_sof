@@ -2,7 +2,7 @@ import joblib
 # import os
 # from pathlib import Path
 # from typing import List
-from fastapi import FastAPI, #HTTPException
+from fastapi import FastAPI #HTTPException
 from pydantic import BaseModel
 from utils_package.functions import *
 # from sklearn.preprocessing import StandardScaler
@@ -47,6 +47,10 @@ if test == "ok":
     print(len(sentence_test))
 
 #response_model=Tags,
+
+@app.get("/")
+def say_hello(one_phrase: Phrase): 
+    return {"hello": "word"}
 
 @app.post("/predict/", status_code=200)
 def read_item(one_phrase: Phrase): 
