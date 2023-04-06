@@ -8,3 +8,4 @@ typing
 # xgboost==1.7.1
 uvicorn
 joblib
+pandas
