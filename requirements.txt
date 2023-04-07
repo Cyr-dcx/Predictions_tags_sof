@@ -6,6 +6,9 @@ typing
 # scikit-learn==1.2.2
 # tensorflow
 # xgboost==1.7.1
+tensorflow-cpu
+tensorflow_hub
 uvicorn
 joblib
 pandas
+test
