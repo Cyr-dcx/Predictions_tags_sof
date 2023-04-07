@@ -1,9 +1,8 @@
 import pandas as pd
 import numpy as np
-
+import tensorflow_hub as hub
 
 def get_embed():
-    import tensorflow_hub as hub
     embed = hub.load("https://tfhub.dev/google/universal-sentence-encoder/4")
     return embed
 

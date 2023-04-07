@@ -1,7 +1,7 @@
 import joblib
 # import os
 # from pathlib import Path
-# from typing import List
+from typing import List, Union
 from fastapi import FastAPI #HTTPException
 from pydantic import BaseModel
 from utils_package.functions import *
@@ -9,11 +9,11 @@ from utils_package.functions import *
 
 app = FastAPI()
 
-class Phrase(BaseModel): 
-    phrase: str
+class Phrase(BaseModel):
+    phrase: Union[str,int]
     # batch_size: int
 
-# class Tags(BaseModel): 
+# class Tags(BaseModel):
 #     tags: List[str]
 
 
@@ -49,19 +49,19 @@ if test == "ok":
 #response_model=Tags,
 
 @app.get("/")
-def say_hello(one_phrase: Phrase): 
+def say_hello(one_phrase: Phrase):
     return {"hello": "word"}
 
 @app.post("/predict/", status_code=200)
-def read_item(one_phrase: Phrase): 
+def read_item(one_phrase: Phrase):
     question = one_phrase.phrase
     preprocessed_question = preprocess_pipeline(question)
     predictions = generate_prediction(preprocessed_question, my_model=model)
     tags = target_encoder.inverse_transform(predictions)
-    
+
     # if not tags:
     #     raise HTTPException(status_code=400, detail="XXX Model Not Found XXX")
-    prediction_tags = dict({"sentence": question, 
+    prediction_tags = dict({"sentence": question,
                        "tags" : tags})
-    
+
     return {"tags": tags}
