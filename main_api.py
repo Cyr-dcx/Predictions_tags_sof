@@ -18,8 +18,8 @@ class Phrase(BaseModel):
 
 
 encoder_file = "./target_encoder.sav"
-scaler_file = "./scaler.sav"
-model_file = "./finalized_model.sav"
+scaler_file = "./scaler_USE.sav"
+model_file = "./xgboost_USE.sav"
 
 target_encoder = joblib.load(encoder_file)
 scaler = joblib.load(scaler_file)
