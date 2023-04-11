@@ -5,9 +5,9 @@
 from fastapi import FastAPI #HTTPException
 from pydantic import BaseModel
 
-# pour le preprocessing de la question
-from utils_package.functions_tfidf import final_cleaning
-import joblib
+# # pour le preprocessing de la question
+# from utils_package.functions_tfidf import final_cleaning
+# import joblib
 
 # pour la modelisation
 # from sklearn.multiclass import OneVsRestClassifier
