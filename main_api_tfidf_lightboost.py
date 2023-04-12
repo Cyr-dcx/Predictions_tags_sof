@@ -25,26 +25,26 @@ class Phrase(BaseModel):
 #     tags: List[str]
 
 
-# encoder_file = "./target_encoder.sav"
-# tfidf_file = "./tfidf_encoder.sav"
-# model_file = "./tfidf_lightGBM.sav"
+encoder_file = "./target_encoder.sav"
+tfidf_file = "./tfidf_encoder.sav"
+model_file = "./tfidf_lightGBM.sav"
 
-# target_encoder = joblib.load(encoder_file)
-# tfidf = joblib.load(tfidf_file)
-# model = joblib.load(model_file)
+target_encoder = joblib.load(encoder_file)
+tfidf = joblib.load(tfidf_file)
+model = joblib.load(model_file)
 
-# sentence_test="I've been making Python scripts for simple tasks at work and never really bothered packaging them for others to use. Now I have been assigned to make a Python wrapper for a REST API. I have absolutely no idea on how to start and I need help.What I have:(Just want to be specific as possible) I have the virtualenv ready, it's also up in github, the .gitignore file for python is there as well, plus, the requests library for interacting with the REST API. That's it.Here's the current directory tree"
+sentence_test="I've been making Python scripts for simple tasks at work and never really bothered packaging them for others to use. Now I have been assigned to make a Python wrapper for a REST API. I have absolutely no idea on how to start and I need help.What I have:(Just want to be specific as possible) I have the virtualenv ready, it's also up in github, the .gitignore file for python is there as well, plus, the requests library for interacting with the REST API. That's it.Here's the current directory tree"
 
-# def preprocess_pipeline(question):
-#     question_list = []
-#     preprocessed_question = final_cleaning(question, token=False)
-#     question_list.append(str(preprocessed_question))
-#     X_tfidf = tfidf.transform(question_list)
-#     return X_tfidf
+def preprocess_pipeline(question):
+    question_list = []
+    preprocessed_question = final_cleaning(question, token=False)
+    question_list.append(str(preprocessed_question))
+    X_tfidf = tfidf.transform(question_list)
+    return X_tfidf
 
-# def generate_prediction(preprocessed_question, my_model=model):
-#     tags = my_model.predict(preprocessed_question)
-#     return tags
+def generate_prediction(preprocessed_question, my_model=model):
+    tags = my_model.predict(preprocessed_question)
+    return tags
 
 @app.get("/")
 def index():
