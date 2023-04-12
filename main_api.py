@@ -49,7 +49,7 @@ if test == "ok":
 #response_model=Tags,
 
 @app.get("/")
-def say_hello(one_phrase: Phrase):
+def say_hello():
     return {"hello": "word"}
 
 @app.post("/predict/", status_code=200)
