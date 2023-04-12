@@ -16,7 +16,6 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-
 class Phrase(BaseModel):
     phrase: str
     # batch_size: int
@@ -57,7 +56,7 @@ def read_item(one_phrase: Phrase):
     predictions = generate_prediction(preprocessed_question, my_model=model)
     tags = target_encoder.inverse_transform(predictions)
 
-    if not tags:
-        raise HTTPException(status_code=400, detail="XXX Model Not Found XXX")
+#     if not tags:
+#         raise HTTPException(status_code=400, detail="XXX Model Not Found XXX")
 
-    return {"tags": question}
+    return {"tags": tags}
