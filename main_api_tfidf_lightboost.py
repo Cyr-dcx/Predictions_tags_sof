@@ -18,7 +18,6 @@ app = FastAPI()
 
 class Phrase(BaseModel):
     phrase: str
-    # batch_size: int
 
 # class Tags(BaseModel):
 #     tags: List[str]
@@ -49,7 +48,7 @@ def generate_prediction(preprocessed_question, my_model=model):
 def index():
     return {"tags": "Faisons une prédiction"}
 
-@app.post("/predict/", status_code=200)
+@app.post("/predict", status_code=200)
 def read_item(one_phrase: Phrase):
     question = one_phrase.phrase
     preprocessed_question = preprocess_pipeline(question)
