@@ -46,6 +46,10 @@ class Phrase(BaseModel):
 #     tags = my_model.predict(preprocessed_question)
 #     return tags
 
+@app.get("/")
+def index():
+    return {"tags": "Faisons une prédiction"}
+
 @app.post("/predict/", status_code=200)
 def read_item(one_phrase: Phrase):
     print("faisons un test pour heroku")
