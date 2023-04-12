@@ -5,7 +5,7 @@ from typing import List, Union
 from fastapi import FastAPI 
 from pydantic import BaseModel
 from utils_package.functions import *
-# from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler
 
 app = FastAPI()
 
@@ -24,7 +24,6 @@ model = joblib.load(model_file)
 sentence_test="I've been making Python scripts for simple tasks at work and never really bothered packaging them for others to use. Now I have been assigned to make a Python wrapper for a REST API. I have absolutely no idea on how to start and I need help.What I have:(Just want to be specific as possible) I have the virtualenv ready, it's also up in github, the .gitignore file for python is there as well, plus, the requests library for interacting with the REST API. That's it.Here's the current directory tree"
 
 def preprocess_pipeline(question, scaler=scaler):
-    # preprocessed_question = final_cleaning(question, token=False)
     features_USE = feature_USE_fct(question, b_size=1)
     X_processed = scaler.transform(features_USE)
     return X_processed
