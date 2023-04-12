@@ -5,7 +5,7 @@ pydantic==1.10.4
 typing
 scikit-learn
 uvicorn
-guvicorn
+gunicorn
 joblib
 pandas
 numpy
