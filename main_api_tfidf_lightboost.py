@@ -52,13 +52,12 @@ def index():
 
 @app.post("/predict/", status_code=200)
 def read_item(one_phrase: Phrase):
-    print("faisons un test pour heroku")
     question = one_phrase.phrase
-    # preprocessed_question = preprocess_pipeline(question)
-    # predictions = generate_prediction(preprocessed_question, my_model=model)
-    # tags = target_encoder.inverse_transform(predictions)
+    preprocessed_question = preprocess_pipeline(question)
+    predictions = generate_prediction(preprocessed_question, my_model=model)
+    tags = target_encoder.inverse_transform(predictions)
 
-    # if not tags:
-    #     raise HTTPException(status_code=400, detail="XXX Model Not Found XXX")
+    if not tags:
+        raise HTTPException(status_code=400, detail="XXX Model Not Found XXX")
 
     return {"tags": question}
