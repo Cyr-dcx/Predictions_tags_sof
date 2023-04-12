@@ -2,7 +2,7 @@ import joblib
 # import os
 # from pathlib import Path
 from typing import List, Union
-from fastapi import FastAPI #HTTPException
+from fastapi import FastAPI 
 from pydantic import BaseModel
 from utils_package.functions import *
 # from sklearn.preprocessing import StandardScaler
@@ -11,11 +11,6 @@ app = FastAPI()
 
 class Phrase(BaseModel):
     phrase: Union[str,int]
-    # batch_size: int
-
-# class Tags(BaseModel):
-#     tags: List[str]
-
 
 encoder_file = "./target_encoder.sav"
 scaler_file = "./scaler_USE.sav"
@@ -46,8 +41,6 @@ if test == "ok":
     print(test_predict.shape)
     print(len(sentence_test))
 
-#response_model=Tags,
-
 # @app.get("/")
 # def say_hello():
 #     return {"hello": "word"}
@@ -58,10 +51,5 @@ def read_item(one_phrase: Phrase):
     preprocessed_question = preprocess_pipeline(question)
     predictions = generate_prediction(preprocessed_question, my_model=model)
     tags = target_encoder.inverse_transform(predictions)
-
-    # if not tags:
-    #     raise HTTPException(status_code=400, detail="XXX Model Not Found XXX")
-    prediction_tags = dict({"sentence": question,
-                       "tags" : tags})
 
     return {"tags": tags}
