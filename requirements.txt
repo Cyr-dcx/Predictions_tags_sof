@@ -9,6 +9,6 @@ gunicorn
 joblib
 pandas
 numpy
-#nltk
+nltk
 scipy
 lightgbm
