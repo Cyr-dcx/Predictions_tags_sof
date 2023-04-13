@@ -1,9 +1,9 @@
 #for preprocessing
 import re
-import nltk
+# import nltk
 
-from nltk.corpus import stopwords as sw
-from nltk.stem import WordNetLemmatizer
+# from nltk.corpus import stopwords as sw
+# from nltk.stem import WordNetLemmatizer
 
 # nltk.download('stopwords')
 # nltk.download('punkt')
@@ -47,27 +47,27 @@ def clean_data(text,
 
     return text
 
-def remove_stop_word(text):
-    stopwords = list(set(sw.words('english')))
-    text = ' '.join([word for word in text.split() if word not in stopwords])
-    return text
+# def remove_stop_word(text):
+#     stopwords = list(set(sw.words('english')))
+#     text = ' '.join([word for word in text.split() if word not in stopwords])
+#     return text
 
-def lemmatizing(text):
-    lemmatizer = WordNetLemmatizer()
-    text = ' '.join([lemmatizer.lemmatize(word) for word in text.split()])
-    return text
+# def lemmatizing(text):
+#     lemmatizer = WordNetLemmatizer()
+#     text = ' '.join([lemmatizer.lemmatize(word) for word in text.split()])
+#     return text
 
-def tokenize(text):
-  tokenizer = nltk.RegexpTokenizer(r'\w+')
-  text = tokenizer.tokenize(text)
-  return text
+# def tokenize(text):
+#   tokenizer = nltk.RegexpTokenizer(r'\w+')
+#   text = tokenizer.tokenize(text)
+#   return text
 
 def final_cleaning(question, token=True):
     final_question = clean_data(question)
-    final_question = remove_stop_word(final_question)
-    final_question = lemmatizing(final_question)
-    if token == True:
-        final_question = tokenize(final_question)
+#     final_question = remove_stop_word(final_question)
+#     final_question = lemmatizing(final_question)
+#     if token == True:
+#         final_question = tokenize(final_question)
     return final_question
 
 
