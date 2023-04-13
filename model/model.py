@@ -12,7 +12,7 @@ target_encoder = joblib.load(encoder_file)
 tfidf = joblib.load(tfidf_file)
 model = joblib.load(model_file)
 
-print(sys.getsizeof(target_encodergit))
+print(sys.getsizeof(target_encoder))
 print(sys.getsizeof(tfidf))
 print(sys.getsizeof(model))
 
