@@ -8,13 +8,13 @@ encoder_file = "./target_encoder.sav"
 tfidf_file = "./tfidf_encoder.sav"
 model_file = "./tfidf_lightGBM.sav"
 
-print(sys.getsizeof(target_encoder))
-print(sys.getsizeof(tfidf))
-print(sys.getsizeof(model))
-
 target_encoder = joblib.load(encoder_file)
 tfidf = joblib.load(tfidf_file)
 model = joblib.load(model_file)
+
+print(sys.getsizeof(target_encodergit))
+print(sys.getsizeof(tfidf))
+print(sys.getsizeof(model))
 
 def preprocess_pipeline(question):
     question_list = []
